@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import JMapForm from './components/JMapForm'
 import JiraGraph from './components/JiraGraph'
+import '@material-ui/core'
 
 const App: React.FC = () => {
 	const [issueOrEpic, setIssueOrEpic] = useState('')
@@ -9,17 +10,8 @@ const App: React.FC = () => {
 		setIssueOrEpic(issueNumber)
 	}
 
-	// const [result, setResult] = useState('')
-
-	// useEffect(() => {
-	// 	fetch('/api/foo')
-	// 		.then(result => result.text())
-	// 		.then(result => setResult(result))
-	// }, [])
-
 	return (
 		<>
-			{/* {result} */}
 			<JMapForm onSubmit={handleSubmit} />
 			<JiraGraph issueOrEpic={issueOrEpic} />
 		</>

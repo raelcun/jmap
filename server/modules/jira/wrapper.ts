@@ -6,10 +6,8 @@ export const searchJira = (baseClient: JiraClient) => (
 	options?: SearchQuery
 ): Promise<SearchResults> => baseClient.searchJira(searchString, options) as Promise<SearchResults>
 
-export const findIssue = (baseClient: JiraClient) => (issueNumber: string): Promise<Issue> => {
-	console.log('issue', issueNumber)
-	return baseClient.findIssue(issueNumber) as Promise<Issue>
-}
+export const findIssue = (baseClient: JiraClient) => (issueNumber: string): Promise<Issue> =>
+	baseClient.findIssue(issueNumber) as Promise<Issue>
 
 export const getEpicIssuesFactory = (baseClient: JiraClient) => (epic: string) =>
 	searchManyIssuesFactory(baseClient)(`"epic link"=${epic}`)

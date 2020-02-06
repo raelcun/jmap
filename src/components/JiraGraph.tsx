@@ -8,9 +8,9 @@ const JiraGraph: React.FC<{ issueOrEpic: string }> = ({ issueOrEpic }) => {
 		let didCancel = false
 
 		const setMermaidMarkup = async () => {
-			const markup = await fetch(process.env.SERVER + '/api/getMermaidDependencies/' + issueOrEpic).then(result =>
-				result.text()
-			)
+			const markup = await fetch(
+				(process.env.REACT_APP_SERVER || '') + '/api/getMermaidDependencies/' + issueOrEpic
+			).then(result => result.text())
 
 			if (!didCancel) {
 				setMarkup(markup)

@@ -77,6 +77,7 @@ export const getAllDescendents = async (
 }
 
 const makeMermaid = (graph: DescendentList, linkFilter: string[]): string => {
+	if (Object.keys(graph.descendents).length === 0) return 'graph TD;'
 	const relationships = Object.entries(graph.descendents).map(([, value]) => {
 		return value.fields.issuelinks
 			.filter(link => linkFilter.includes(link.type.inward) && link.outwardIssue !== undefined)

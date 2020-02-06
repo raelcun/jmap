@@ -62,7 +62,9 @@ describe('searchManyIssuesFactory', () => {
 			})
 		const mockClient = createMockClient({ searchJira: searchJiraFn })
 
-		const results = await searchManyIssuesFactory(mockClient)('foo', { getUntil: 3 })
+		const results = await searchManyIssuesFactory(mockClient)('foo', {
+			getUntil: 3,
+		})
 
 		expect(results.map(e => e.key)).toEqual(['Issue1', 'Issue2', 'Issue3'])
 	})

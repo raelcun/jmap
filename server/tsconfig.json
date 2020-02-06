@@ -5,7 +5,5 @@
     "target": "es6",
     "moduleResolution": "node"
   },
-  "include": [
-    "server.ts"
-  ]
+  "include": ["server.ts"]
 }
